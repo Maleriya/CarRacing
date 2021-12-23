@@ -22,6 +22,8 @@ namespace UI
         private void StartGame()
         {
             _playerProfile.CurrentState.Value = GameState.Game;
+            _playerProfile.AnalyticTools.SendMessage("start_game");
+            _playerProfile.AdsShower.ShowInterstitial();
         }
 
         private MainMenuView LoadMenuView(Transform placeForUI)
