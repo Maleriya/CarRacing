@@ -2,7 +2,7 @@
 
 namespace Tools.Extension
 {
-    public static class Extension
+    public static class GameObjectExtension
     {
         public static void Destroy(this GameObject gameObject)
         {
