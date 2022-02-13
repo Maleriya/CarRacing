@@ -12,7 +12,7 @@ namespace Game.InputLogic
 
         public InputGameController(SubscriptionProperty<float> leftMove, SubscriptionProperty<float> rightMove, Car car)
         {
-            _resourcePath = new ResourcePath("Prefabs/TapTapInput");
+            _resourcePath = new ResourcePath("Prefabs/CompInputView");
             _inputView = LoadInputView();
             _inputView.Init(leftMove, rightMove, car.Speed);
 

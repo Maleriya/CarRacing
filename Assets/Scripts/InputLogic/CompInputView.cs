@@ -22,7 +22,6 @@ namespace Game.InputLogic
 
         private void Move()
         {
-            Debug.Log("0");
             Vector3 direction = Vector3.zero;
             if (Input.GetKeyDown(KeyCode.D))
                 _isButtonDown = true;
