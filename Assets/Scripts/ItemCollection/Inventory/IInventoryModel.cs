@@ -6,4 +6,3 @@ internal interface IInventoryModel
     void EquipItem(IItem item);
     void UnequipItem(IItem item);
 }
-

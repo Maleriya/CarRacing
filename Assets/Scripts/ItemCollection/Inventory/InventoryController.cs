@@ -1,21 +1,21 @@
 ﻿using Game.Controllers;
-using JetBrains.Annotations;
+using Profile;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 internal class InventoryController : BaseController, IInventoryController
 {
     private readonly IInventoryModel _inventoryModel;
     private readonly IItemsRepository _itemsRepository;
     private readonly IInventoryView _inventoryView;
-    public InventoryController(List<ItemConfig> itemConfigs)
+    public InventoryController(List<ItemConfig> itemConfigs, IInventoryView inventoryView)
     {
-        _inventoryModel =  new InventoryModel();
+        _inventoryModel =  new InventoryModel();     
         _itemsRepository = new ItemsRepository(itemConfigs);
-        _inventoryView = new InventoryView();
+        _inventoryView = inventoryView;
+
+        _inventoryView.onSelectedItem += _inventoryModel.EquipItem;
+        _inventoryView.onDeselectedItem += _inventoryModel.UnequipItem;
     }
 
     public void HideInventory()

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c101a8a07467ba64f9d7a77f85702d16, type: 3}
-  m_Name: UpgradeItemConfigDataSource
+  m_Script: {fileID: 11500000, guid: ee62e6bc908ccd741b4302a2709f198f, type: 3}
+  m_Name: Window
   m_EditorClassIdentifier: 
-  itemConfigs:
-  - {fileID: 11400000, guid: 8776cee0a46a3e547ac36cdc9bf2b34a, type: 2}
+  id: 2
+  title: Window

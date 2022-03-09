@@ -26,7 +26,7 @@ public class Root : MonoBehaviour
         IAnalyticTools analyticTool = new UnityAnalyticTools();
         PlayerProfileModel playerProfile = new PlayerProfileModel(15f, analyticTool, _placeForAdsi);
         playerProfile.CurrentState.Value = GameState.Start;
-        _mainController = new MainController(_placeForUi, playerProfile, _itemConfigs);
+        _mainController = new MainController(_placeForUi, playerProfile, _itemConfigs, _inventoryView);
     }
 
     protected void OnDestroy()

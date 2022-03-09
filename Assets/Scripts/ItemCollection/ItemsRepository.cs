@@ -4,12 +4,12 @@ using System.Collections.Generic;
 internal class ItemsRepository : BaseController, IItemsRepository
 {
     public IReadOnlyDictionary<int, IItem> Items => _itemsMapById;
-    public Dictionary<int, IItem> _itemsMapById = new Dictionary<int, IItem>();
+    private Dictionary<int, IItem> _itemsMapById = new Dictionary<int, IItem>();
 
     #region Life cycle
     public ItemsRepository(List<ItemConfig> upgradeItemConfigs)
     {
-        PopulateItems(ref _itemsMapById, upgradeItemConfigs);
+        PopulateItems(upgradeItemConfigs);
     }
 
     protected override void OnDispose()
@@ -20,14 +20,14 @@ internal class ItemsRepository : BaseController, IItemsRepository
     #endregion
 
     #region Metods
-    private void PopulateItems(ref Dictionary<int, IItem> upgradeHandlersMapByType, List<ItemConfig> configs)
+    private void PopulateItems(List<ItemConfig> configs)
     {
         foreach (var config in configs)
         {
-            if (upgradeHandlersMapByType.ContainsKey(config.id))
+            if (_itemsMapById.ContainsKey(config.id))
                 continue;
 
-            upgradeHandlersMapByType.Add(config.id, CreateItem(config));
+            _itemsMapById.Add(config.id, CreateItem(config));
         }
     }
 
