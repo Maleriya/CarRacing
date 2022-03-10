@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Game.Controllers;
+using System.Collections.Generic;
 using System.Linq;
 
-public class AbilitiesController
+internal class AbilitiesController : BaseController
 {
     private readonly IAbilityRepository _abilityRepository;
     private readonly IAbilityCollectionView _abilityCollectionView;
@@ -19,5 +20,10 @@ public class AbilitiesController
     public void ShowAbilities()
     {
         _abilityCollectionView.Display(_abilityRepository.ItemMapByItemId.Select(kvp => kvp.Value).ToList());
+    }
+
+    protected override void OnDispose()
+    {
+        _abilityCollectionView.UseRequesed -= ApplyAbility;
     }
 }

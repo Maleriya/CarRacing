@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Upgrade item", menuName = "UpgradeItemConfig/Upgrade item", order = 0)]
 public class UpgradeItemConfig : ScriptableObject
@@ -10,4 +9,3 @@ public class UpgradeItemConfig : ScriptableObject
 
     public int Id => itemConfig.id;
 }
-

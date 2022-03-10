@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class InventoryView : MonoBehaviour, IInventoryView
+public class InventoryView : MonoBehaviour, IInventoryView, IDisposable
 {
     [SerializeField]
     private GameObject _panel;
@@ -14,22 +14,20 @@ public class InventoryView : MonoBehaviour, IInventoryView
     public event Action<IItem> onSelectedItem;
     public event Action<IItem> onDeselectedItem;
 
-    private List<IItem> items = new List<IItem>();
+    private List<IItem> _items = new List<IItem>();
 
     public void Display(IReadOnlyList<IItem> items)
     {
         _panel.SetActive(true);
 
-        int i = 0;
-        foreach (var item in items)
+        for (int i = 0; i < items.Count; i++)
         {
-            _itemsView[i].text.text = item.Info.Title;
-            _itemsView[i].Id = item.Id;
+            _itemsView[i].text.text = items[i].Info.Title;
+            _itemsView[i].Id = items[i].Id;
             _itemsView[i].onClickSelect += SelectedItem;
             _itemsView[i].onClickDeselect += DeselectedItem;
-            Debug.Log($"Id item: {item.Id}. Title item: {item.Info.Title}");
-            i++;
-            this.items.Add(item);
+            Debug.Log($"Id item: {items[i].Id}. Title item: {items[i].Info.Title}");
+            _items.Add(items[i]);
         }
     }
 
@@ -47,7 +45,15 @@ public class InventoryView : MonoBehaviour, IInventoryView
 
     private IItem FindById(int id)
     {
-        return items.Where(i => i.Id == id).First();
+        return _items.First(i => i.Id == id);
     }
 
+    public void Dispose()
+    {
+        foreach (var item in _itemsView)
+        {
+            item.onClickSelect -= SelectedItem;
+            item.onClickDeselect -= DeselectedItem;
+        }
+    }
 }

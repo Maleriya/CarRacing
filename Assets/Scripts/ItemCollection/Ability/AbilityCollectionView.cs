@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class AbilityCollectionView : MonoBehaviour, IAbilityCollectionView
+public class AbilityCollectionView : MonoBehaviour, IAbilityCollectionView, IDisposable
 {
     [SerializeField]
     private AbilityItemView[] _itemsView;
@@ -44,6 +44,14 @@ public class AbilityCollectionView : MonoBehaviour, IAbilityCollectionView
 
     private IItem FindById(int id)
     {
-        return _abilityItems.Where(i => i.Id == id).First();
+        return _abilityItems.First(i => i.Id == id);
+    }
+
+    public void Dispose()
+    {
+        foreach (var item in _itemsView)
+        {
+            item.onClick -= ClickItem;
+        }
     }
 }
