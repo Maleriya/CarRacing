@@ -14,7 +14,7 @@ public class InventoryItemView : MonoBehaviour, IInventoryItemView, IPointerClic
     private Image _mainImage;
 
     public int Id;
-    public bool isSelect { get; private set; }
+    private bool isSelect { get; set; }
     public Text text { get => _text; set => _text = value; }
     public Image image { get => _image; set => _image = value; }
 

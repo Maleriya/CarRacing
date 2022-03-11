@@ -8,12 +8,15 @@ namespace Game.Controllers
 {
     internal class MainController : BaseController
     {
-        public MainController(Transform placeForUi, PlayerProfileModel playerProfile, List<ItemConfig> itemConfigs, IInventoryView inventoryView)
+        public MainController(Transform placeForUi, PlayerProfileModel playerProfile, List<ItemConfig> itemConfigs, IInventoryView inventoryView,
+            List<AbilityItemConfig> abilityConfigs, IAbilityCollectionView abilityCollectionView)
         {
             _playerProfile = playerProfile;
             _placeForUi = placeForUi;
             _itemConfigs = itemConfigs;
             _inventoryView = inventoryView;
+            _abilityConfigs = abilityConfigs;
+            _abilityCollectionView = abilityCollectionView;
 
             OnChangeGameState(_playerProfile.CurrentState.Value);
             playerProfile.CurrentState.SubscribeOnChange(OnChangeGameState);
@@ -26,6 +29,9 @@ namespace Game.Controllers
         private InventoryController _inventoryController;
         private readonly List<ItemConfig> _itemConfigs;
         private IInventoryView _inventoryView;
+        private AbilitiesController _abilitiesController;
+        List<AbilityItemConfig> _abilityConfigs;
+        IAbilityCollectionView _abilityCollectionView;
         protected override void OnDispose()
         {
             _mainMenuController?.Dispose();
@@ -45,6 +51,9 @@ namespace Game.Controllers
                 case GameState.Game:
                     _inventoryController = new InventoryController(_itemConfigs, _inventoryView);
                     _inventoryController.ShowInventory();
+
+                    _abilitiesController = new AbilitiesController(_abilityConfigs, _abilityCollectionView);
+                    _abilitiesController.ShowAbilities();
 
                     _gameController = new GameController(_playerProfile);
                     _mainMenuController?.Dispose();

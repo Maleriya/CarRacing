@@ -1,6 +1,4 @@
-﻿
-internal interface IUpgradeCarHandler
+﻿internal interface IUpgradeCarHandler
 {
     IUpgradableCar Upgrade(IUpgradableCar upgradableCar);
 }
-

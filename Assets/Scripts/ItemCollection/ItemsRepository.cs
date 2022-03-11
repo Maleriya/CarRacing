@@ -1,5 +1,6 @@
 ﻿using Game.Controllers;
 using System.Collections.Generic;
+using UnityEngine;
 
 internal class ItemsRepository : BaseController, IItemsRepository
 {
@@ -27,7 +28,8 @@ internal class ItemsRepository : BaseController, IItemsRepository
             if (_itemsMapById.ContainsKey(config.id))
                 continue;
 
-            _itemsMapById.Add(config.id, CreateItem(config));
+            IItem itemConfig = CreateItem(config);
+            _itemsMapById.Add(config.id, itemConfig);
         }
     }
 

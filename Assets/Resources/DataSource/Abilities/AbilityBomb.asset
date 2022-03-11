@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1e8c5c259bc644f90b7f6a51376c79, type: 3}
+  m_Name: AbilityBomb
+  m_EditorClassIdentifier: 
+  _itemConfig: {fileID: 11400000, guid: 67901b06c6c534a43ae15e61712dc7fe, type: 2}
+  _view: {fileID: 8508748580236477791, guid: e75d66f8fc9ba0f4fbff43fdb387a1db, type: 3}
+  _type: 1
+  _value: 10

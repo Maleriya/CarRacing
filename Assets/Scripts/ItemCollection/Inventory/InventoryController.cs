@@ -20,7 +20,7 @@ internal class InventoryController : BaseController, IInventoryController
 
     public void HideInventory()
     {
-        throw new NotImplementedException();
+        
     }
 
     public void ShowInventory()
@@ -30,5 +30,11 @@ internal class InventoryController : BaseController, IInventoryController
 
         var equippedItems = _inventoryModel.GetEquippedItems();
         _inventoryView.Display(equippedItems);
+    }
+
+    protected override void OnDispose()
+    {
+        _inventoryView.onSelectedItem -= _inventoryModel.EquipItem;
+        _inventoryView.onDeselectedItem -= _inventoryModel.UnequipItem;
     }
 }
