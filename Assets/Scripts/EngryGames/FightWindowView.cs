@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,6 +48,9 @@ internal class FightWindowView : MonoBehaviour
     private Button _buttonPass;
 
     [SerializeField]
+    private PopupView _popupView;
+
+    [SerializeField]
     private Button _minusButtonCrime;
 
     private int _allCountMoneyPlayer;
@@ -86,6 +90,17 @@ internal class FightWindowView : MonoBehaviour
         _addButtonCrime.onClick.AddListener(() => ChangeCrime(true));
         _minusButtonCrime.onClick.AddListener(() => ChangeCrime(false));
 
+        _addButtonCrime.onClick.AddListener(() => voidShake(_addButtonCrime));
+        _minusButtonCrime.onClick.AddListener(() => voidShake(_minusButtonCrime));
+        _addButtonMoney.onClick.AddListener(() => voidShake(_addButtonMoney));
+        _minusButtonMoney.onClick.AddListener(() => voidShake(_minusButtonMoney));
+        _addButtonHealth.onClick.AddListener(() => voidShake(_addButtonHealth));
+        _minusButtonHealth.onClick.AddListener(() => voidShake(_minusButtonHealth));
+        _addButtonPower.onClick.AddListener(() => voidShake(_addButtonPower));
+        _minusButtonPower.onClick.AddListener(() => voidShake(_minusButtonPower));
+        _buttonPass.onClick.AddListener(() => voidShake(_buttonPass));
+        _buttonFight.onClick.AddListener(() => voidShake(_buttonFight));
+
         _buttonPass.onClick.AddListener(Pass);
         _buttonFight.onClick.AddListener(Fight);
     }
@@ -113,13 +128,21 @@ internal class FightWindowView : MonoBehaviour
     }
     private void Pass()
     {
-        Debug.Log("<color=#07FF00>Pass!!!</color>");
+        string result = "<color=#07FF00>Pass!!!</color>";
+        Debug.Log(result);
+        _popupView.ShowPopup(result);
     }
     private void Fight()
     {
-        Debug.Log(_allCountPowerPlayer >= _enemy.Power ? "<color=#07FF00>Win!!!</color>" : "<color=#FF0000>Lose!!!</color>");
+        string result = _allCountPowerPlayer >= _enemy.Power ? "<color=#07FF00>Win!!!</color>" : "<color=#FF0000>Lose!!!</color>";
+        Debug.Log(result);
+        _popupView.ShowPopup(result);
     }
 
+    private void voidShake(Button button)
+    {
+        button.transform.DOShakePosition(1, 5);
+    }
     private void ChangeDataWindow(int countDataType, DataType dataType)
     {
         switch (dataType)
@@ -147,7 +170,7 @@ internal class FightWindowView : MonoBehaviour
         if (_isAddCount)
             _allCountHealthPlayer++;
         else
-            _allCountHealthPlayer--;
+            _allCountHealthPlayer = _allCountHealthPlayer == 0 ? 0 : _allCountHealthPlayer - 1;
 
         ChangeDataWindow(_allCountHealthPlayer, DataType.Health);
     }
@@ -157,7 +180,7 @@ internal class FightWindowView : MonoBehaviour
         if (_isAddCount)
             _allCountPowerPlayer++;
         else
-            _allCountPowerPlayer--;
+            _allCountPowerPlayer = _allCountPowerPlayer == 0 ? 0 : _allCountPowerPlayer - 1;
 
         ChangeDataWindow(_allCountPowerPlayer, DataType.Power);
     }
@@ -167,7 +190,7 @@ internal class FightWindowView : MonoBehaviour
         if (_isAddCount)
             _allCountMoneyPlayer++;
         else
-            _allCountMoneyPlayer--;
+            _allCountMoneyPlayer = _allCountMoneyPlayer == 0 ? 0 : _allCountMoneyPlayer - 1;
 
         ChangeDataWindow(_allCountMoneyPlayer, DataType.Money);
     }
@@ -177,7 +200,7 @@ internal class FightWindowView : MonoBehaviour
         if (_isAddCount)
             _countCrime++;
         else
-            _countCrime--;
+            _countCrime = _countCrime == 0 ? 0 : _countCrime - 1;
 
         _countCrimeText.text = $"Player Crime: {_countCrime}";
 
