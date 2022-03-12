@@ -5,7 +5,7 @@
         None,
         Start,
         Game,
-        Pause,
-        End
+        DailyReward,
+        Fight
     }
 }

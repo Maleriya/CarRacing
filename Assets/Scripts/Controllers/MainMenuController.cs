@@ -16,7 +16,7 @@ namespace UI
             _resourcePath = new ResourcePath("Prefabs/MainMenu");
             _playerProfile = player;
             _menuView = LoadMenuView(placeForUI);
-            _menuView.Init(StartGame);
+            _menuView.Init(StartGame, DailyRewardGame);
         }
 
         private void StartGame()
@@ -31,6 +31,11 @@ namespace UI
             GameObject gameObject = Object.Instantiate(ResourceLoader.Load<GameObject>(_resourcePath), placeForUI, false);
             AddGameObject(gameObject);
             return gameObject.GetComponent<MainMenuView>();
+        }
+
+        private void DailyRewardGame()
+        {
+            _playerProfile.CurrentState.Value = GameState.DailyReward;
         }
     }
 }

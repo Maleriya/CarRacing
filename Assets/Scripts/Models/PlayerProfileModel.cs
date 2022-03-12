@@ -3,7 +3,7 @@ using Tools;
 
 namespace Profile
 {
-    internal class PlayerProfileModel
+    public class PlayerProfileModel
     {
         public SubscriptionProperty<GameState> CurrentState { get; }
         public Car CurrentCar { get; }

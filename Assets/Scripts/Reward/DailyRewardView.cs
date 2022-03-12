@@ -36,6 +36,9 @@ public class DailyRewardView : MonoBehaviour
     [SerializeField]
     private Button _resetButton;
 
+    [SerializeField]
+    private Button _closeWindowButton;
+
     public float TimeCooldown => _timeCooldown;
 
     public float TimeDeadline => _timeDeadline;
@@ -51,6 +54,8 @@ public class DailyRewardView : MonoBehaviour
     public Button GetRewardButton => _getRewardButton;
 
     public Button ResetButton => _resetButton;
+
+    public Button CloseWindowButton => _closeWindowButton;
 
     public int CurrentSlotInActive
     {
@@ -77,11 +82,4 @@ public class DailyRewardView : MonoBehaviour
                 PlayerPrefs.DeleteKey(TimeGetRewardKey);
         }
     }
-
-    private void OnDestroy()
-    {
-        _getRewardButton.onClick.RemoveAllListeners();
-        _resetButton.onClick.RemoveAllListeners();
-    }
-
 }

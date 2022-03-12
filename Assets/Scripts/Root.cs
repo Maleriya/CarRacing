@@ -25,14 +25,27 @@ public class Root : MonoBehaviour
     List<AbilityItemConfig> _abilityConfigs;
 
     [SerializeField]
-    AbilityCollectionView abilityCollectionView;
+    AbilityCollectionView _abilityCollectionView;
+
+    [SerializeField]
+    DailyRewardView _dailyRewardView;
+
+    [SerializeField]
+    FightWindowView _fightWindowView;
+
+    [SerializeField]
+    CurrencyView _currencyView;
+
+    [SerializeField]
+    StartFightView _startFightView;
 
     private void Awake()
     {
         IAnalyticTools analyticTool = new UnityAnalyticTools();
         PlayerProfileModel playerProfile = new PlayerProfileModel(15f, analyticTool, _placeForAdsi);
         playerProfile.CurrentState.Value = GameState.Start;
-        _mainController = new MainController(_placeForUi, playerProfile, _itemConfigs, _inventoryView, _abilityConfigs, abilityCollectionView);
+        _mainController = new MainController(_placeForUi, playerProfile, _itemConfigs, _inventoryView, _abilityConfigs, _abilityCollectionView,
+            _dailyRewardView, _fightWindowView, _currencyView, _startFightView);
     }
 
     protected void OnDestroy()

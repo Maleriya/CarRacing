@@ -6,6 +6,9 @@ using UnityEngine;
 public class AbilityCollectionView : MonoBehaviour, IAbilityCollectionView, IDisposable
 {
     [SerializeField]
+    private GameObject _panel;
+
+    [SerializeField]
     private AbilityItemView[] _itemsView;
 
     private IReadOnlyList<IItem> _abilityItems;
@@ -18,6 +21,8 @@ public class AbilityCollectionView : MonoBehaviour, IAbilityCollectionView, IDis
     }
     public void Display(IReadOnlyList<IItem> abilityItems)
     {
+        _panel.SetActive(true);
+
         _abilityItems = abilityItems;
         for (int i = 0; i < _abilityItems.Count; i++)
         {
