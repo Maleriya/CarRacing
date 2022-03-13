@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: images_bundle
+  m_EditorClassIdentifier: 
+  m_GroupName: images_bundle
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 93e398be6353deb4eba7d47b922afc1e
+  m_SerializeEntries:
+  - m_GUID: 53831ffd2c1064d07b3fcc10982b1e0d
+    m_Address: Assets/UI/Resource Vector Graphics/UI_Graphic_Resource_Coins.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 1618cb37bcd5144fd923b9697be57d63
+    m_Address: Assets/UI/Resource Vector Graphics/UI_Graphic_Resource_Food.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f59401c5c79564fd1ae3bfb0876455a7
+    m_Address: Assets/UI/Resource Vector Graphics/UI_Graphic_Resource_Gems.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 6545e8da21122224582a3bc16ca3bb7c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e590203dc73ec8f45a2aebb4b931d5e3, type: 2}
+    - {fileID: 11400000, guid: 546bfaf73bba6c74ca81fe02d950b084, type: 2}
