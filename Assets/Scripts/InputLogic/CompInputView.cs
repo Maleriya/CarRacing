@@ -29,8 +29,11 @@ namespace Game.InputLogic
             if (Input.GetKeyUp(KeyCode.D))
                 _isButtonDown = false;
 
-            if (_isButtonDown)
-                direction.z = 1;
+            // пусть пока машина всегда едет
+            //if (_isButtonDown)
+            //    direction.z = 1;
+
+            direction.z = 1;
 
             if (direction.sqrMagnitude > 1)
                 direction.Normalize();

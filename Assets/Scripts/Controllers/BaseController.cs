@@ -5,7 +5,7 @@ using Tools.Extension;
 
 namespace Game.Controllers
 {
-    internal abstract class BaseController : IDisposable
+    public abstract class BaseController : IDisposable
     {
         protected List<BaseController> _baseControllers;
         protected List<GameObject> _gameObjects;

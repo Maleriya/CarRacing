@@ -2,7 +2,7 @@
 
 namespace Tools
 {
-    internal interface IAdsShower
+    public interface IAdsShower
     {
         void ShowBanner();
         void ShowInterstitial();
