@@ -1,0 +1,19 @@
+ManifestFileVersion: 0
+CRC: 3650123394
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2fe757b475b3eb698dc30a52d11d6542
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9a2ca7bdbd1871f7131daf57de908e0c
+HashAppended: 0
+ClassTypes:
+- Class: 83
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- "Assets/Audio/\u041D\u043E\u0447\u043D\u044B\u0435 \u0440\u0430\u0437\u0433\u043E\u0432\u043E\u0440\u044B
+  \u043D\u0430 \u0441\u0442\u0430\u043D\u0446\u0438\u0438, \u0441\u043B\u044B\u0448\u043D\u043E
+  \u0441\u0432\u0435\u0440\u0447\u043A\u043E\u0432.mp3"
+Dependencies: []
